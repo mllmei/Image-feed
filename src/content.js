@@ -21,8 +21,8 @@ export default class Content extends Component {
       <div>
         <div>
           <input
-            style={{ margin: "auto" }}
             className="input1"
+            style={{ margin: "auto" }}
             type="text"
             value={this.state.input}
             onChange={this.changeurl}
@@ -35,29 +35,22 @@ export default class Content extends Component {
             value={this.state.title}
             onChange={this.changetitle}
           />
-          <button className="button" onClick={this.addnew}>
+          <button
+            disabled={this.state.input === ""}
+            className="button"
+            onClick={this.addnew}
+          >
             New Post
           </button>
         </div>
 
         {this.state.imagearray.map(element => {
           return (
-            <div
-              style={{
-                margin: "auto",
-                width: "60%",
-                height: "50%",
-                backgroundColor: "white"
-              }}
-            >
+            <div className="background">
               <h3>{element.title}</h3>
               <img
+                className="img"
                 src={`${element.image}`}
-                style={{
-                  width: "90%",
-                  height: "60%",
-                  marginBottom: "3%"
-                }}
                 alt={element.title}
               />
             </div>
